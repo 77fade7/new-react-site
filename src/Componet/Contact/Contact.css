@@ -1,0 +1,83 @@
+ /* PlatformAbout.css */
+
+.platform-about {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #1a1a1a, #2e2e2e); /* خلفية داكنة */
+  color: #f5f5f5;
+  padding: 2em;
+  padding-bottom: 100px; /* space for footer */
+}
+
+.about-header {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+.about-header h1 {
+  font-size: 2.2em;
+  margin-bottom: 1em;
+  color: gold; /* عنوان ذهبي */
+}
+
+.about-header p {
+  font-size: 1.1em;
+  line-height: 1.7;
+  color: #ccc; /* نص رمادي فاتح */
+  margin-bottom: 1em;
+}
+
+.skills-section {
+  margin-top: 3em;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.skills-section h2 {
+  text-align: center;
+  margin-bottom: 1em;
+  color: #0f0; /* أخضر ساطع */
+}
+
+.skill {
+  margin-bottom: 1em;
+}
+
+.skill label {
+  display: block;
+  margin-bottom: 0.4em;
+  font-weight: bold;
+  color: #ddd;
+}
+
+.progress {
+  background: #333; /* خلفية البار */
+  border-radius: 8px;
+  overflow: hidden;
+  height: 24px;
+}
+
+.progress-bar {
+  background: linear-gradient(to right, #16a34a, #22c55e); /* أخضر متدرج */
+  height: 100%;
+  color: #000;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: progressAnim 2s ease forwards;
+}
+
+ 
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes progressAnim {
+  from { width: 0%; }
+  to { width: 100%; }
+}

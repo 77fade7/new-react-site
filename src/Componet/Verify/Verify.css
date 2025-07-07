@@ -1,0 +1,114 @@
+ /* Verify.css */
+
+body {
+  margin: 0;
+  background-color: #000;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.verify-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #fff;
+}
+
+.verify-card {
+  background: linear-gradient(135deg, #222, #111);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #0ff;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+
+.verify-card h2 {
+  margin-bottom: 20px;
+  color: #0ff;
+}
+
+.verify-card input[type="file"] {
+  display: block;
+  margin: 10px auto;
+  color: #fff;
+}
+
+.verify-card input[type="file"]::-webkit-file-upload-button {
+  background: #0ff;
+  color: #000;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.verify-card input[type="file"]::-webkit-file-upload-button:hover {
+  background: #00cccc;
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-group button {
+  background-color: #0ff;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-group button:hover {
+  background-color: #00cccc;
+}
+
+.verify-btn {
+  background-color: #0ff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.verify-btn:hover {
+  background-color: #00cccc;
+}
+
+.verified-btn {
+  background-color: #28a745;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: bold;
+  margin-top: 20px;
+  cursor: default;
+}
+
+.timer {
+  font-size: 2em;
+  color: #0ff;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}

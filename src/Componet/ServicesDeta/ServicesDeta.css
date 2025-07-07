@@ -1,0 +1,281 @@
+ /* عام */
+body {
+  background-color: #0f0f0f;
+  font-family: 'Cairo', sans-serif, Arial, sans-serif;
+  color: #f1f1f1;
+  margin: 0;
+  padding: 0;
+}
+
+/* الحاوية الأساسية */
+.service-detail {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeInUp 1s ease forwards;
+  text-align: center;
+}
+
+/* العناوين */
+.service-detail h2,
+.service-detail h3,
+.service-detail h4 {
+  color: #ffd700;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
+  animation: glow 2.5s ease-in-out infinite alternate;
+  font-weight: 700;
+}
+
+/* وصف الخدمة */
+.description {
+  color: #ccc;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* البطاقات (مستويات الاستثمار) */
+.levels-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.8rem;
+  padding-top: 100px;
+  margin-bottom: 2rem;
+}
+
+.level-item {
+  background: #1a1a1a;
+  border: 1px solid #444;
+  border-radius: 20px;
+  padding: 1.8rem 1.5rem;
+  box-shadow:
+    inset 0 0 15px rgba(255, 215, 0, 0.1),
+    0 0 30px rgba(255, 215, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  color: #eee;
+  text-align: center;
+  animation: slideInUp 0.8s ease forwards;
+}
+
+.level-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 50px rgba(255, 215, 0, 0.45);
+}
+
+.level-item h4 {
+  color: #ffd700;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.level-item p {
+  margin: 0.4rem 0;
+  font-size: 1rem;
+}
+
+/* الأزرار */
+button {
+  background: linear-gradient(145deg, #ffd700, #e6c200);
+  color: #000;
+  border: none;
+  padding: 0.6rem 1.6rem;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 14px;
+  margin-top: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 12px rgba(255, 215, 0, 0.35);
+  user-select: none;
+}
+
+button:hover {
+  background: linear-gradient(145deg, #ffe55e, #c9a700);
+  transform: scale(1.08);
+}
+
+button:disabled {
+  background: #444;
+  color: #999;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* زر النسخ */
+.usdt-address button {
+  margin-left: 0.7rem;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.9rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 7px rgba(255, 215, 0, 0.4);
+  transition: background-color 0.3s ease;
+}
+
+.usdt-address button:hover {
+  background-color: #ffd700;
+  color: #000;
+}
+
+/* نموذج الإيداع */
+.deposit-form {
+  margin-top: 1.6rem;
+  padding: 1.8rem;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  border: 1px solid #444;
+  animation: fadeIn 0.9s ease forwards;
+  backdrop-filter: blur(10px);
+  text-align: left;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.deposit-form label {
+  display: block;
+  margin-bottom: 1.2rem;
+  color: #f0f0f0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.deposit-form input[type="text"],
+.deposit-form input[type="number"],
+.deposit-form input[type="file"] {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 10px;
+  border: 1px solid #666;
+  background: #111;
+  color: #fff;
+  margin-top: 0.4rem;
+  font-size: 1rem;
+}
+
+/* خطوات الاستثمار */
+.investment-steps {
+  padding-left: 1.8rem;
+  max-width: 720px;
+  margin: 2rem auto;
+  list-style: decimal;
+  color: #ddd;
+  font-size: 1.1rem;
+  text-align: left;
+}
+
+.investment-steps li {
+  margin-bottom: 1.1rem;
+  padding: 0.7rem 1rem;
+  background: rgba(255, 215, 0, 0.07);
+  border-left: 5px solid #ffd700;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.15);
+}
+
+/* قسم عناوين الايداع */
+.usdt-addresses {
+  margin-top: 2rem;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.usdt-address {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #222;
+  padding: 0.9rem 1.2rem;
+  border-radius: 14px;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.15);
+  font-family: monospace;
+  font-size: 1rem;
+  color: #ffd700;
+  user-select: all;
+  transition: background-color 0.3s ease;
+}
+
+.usdt-address:hover {
+  background-color: #333;
+}
+
+/* نصوص دعوة وتواصل */
+.invite {
+  margin-top: 2rem;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #ffd700;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.9);
+}
+
+.contact {
+  margin-top: 0.8rem;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* أنميشنات */
+
+/* ظهور مع صعود */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* توهج ذهبي متكرر */
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+  }
+  100% {
+    text-shadow: 0 0 18px rgba(255, 215, 0, 1);
+  }
+}
+
+/* بطاقة تظهر من الأسفل */
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* نبض مستمر */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 6px rgba(255, 215, 0, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(255, 215, 0, 1);
+  }
+  100% {
+    box-shadow: 0 0 6px rgba(255, 215, 0, 0.8);
+  }
+}
+
+/* تلاشي بسيط */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

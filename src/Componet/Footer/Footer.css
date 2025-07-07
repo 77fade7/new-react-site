@@ -1,0 +1,48 @@
+ /* ===== Footer Styling ===== */
+footer {
+  padding: 20px 0;
+  background-color: #111;       /* Dark background matching the site theme */
+  color: #aaa;                  /* Elegant gray text */
+  text-align: center;
+  border-top: 1px solid #444;   /* subtle top border */
+  margin-top: auto;
+  font-size: 0.95rem;
+  transition: background 0.3s ease;
+}
+
+/* highlight footer links */
+footer a {
+  color: gold;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+footer a:hover {
+  color: #ffd700;
+  text-decoration: underline;
+}
+
+/* optional social icons style if you want to add later */
+footer .social-icons {
+  margin-top: 10px;
+}
+
+footer .social-icons a {
+  margin: 0 8px;
+  display: inline-block;
+  font-size: 1.2rem;
+  color: gold;
+}
+
+footer .social-icons a:hover {
+  color: #ffd700;
+}
+
+/* responsive for small screens */
+@media (max-width: 600px) {
+  footer {
+    font-size: 0.85rem;
+    padding: 15px 0;
+  }
+} 
