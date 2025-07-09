@@ -33,6 +33,7 @@
 .navbar-logo {
   color: rgb(26, 195, 187);
   font-size: 1.5rem;
+  margin-left: 100px;
   font-weight: bold;
   letter-spacing: 2px;
   cursor: pointer;
