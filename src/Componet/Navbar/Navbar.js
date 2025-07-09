@@ -1,8 +1,9 @@
- import React from "react";
+ import React, { useState } from "react";  // أضفت useState فقط
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);  // حالة للتحكم بالعرض
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -10,28 +11,47 @@ const Navbar = () => {
     navigate(0); // إعادة تحميل الصفحة لإظهار شاشة تسجيل الدخول
   };
 
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">cryptotech202</div>
-      <ul className="navbar-links">
+
+      {/* أضفت هنا شرط لتبديل className لعرض القائمة في الجوال */}
+      <ul className={`navbar-links ${menuOpen ? "open" : ""}`}>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
         </li>
         <li>
-          <Link to="/contact">PlatformAbout</Link>
+          <Link to="/contact" onClick={() => setMenuOpen(false)}>PlatformAbout</Link>
         </li>
         <li>
-          <Link to="/services">Services</Link>
+          <Link to="/services" onClick={() => setMenuOpen(false)}>Services</Link>
         </li>
         <li>
-          <button onClick={handleLogout} className="logout-btn">
+          <button
+            onClick={() => {
+              handleLogout();
+              setMenuOpen(false);
+            }}
+            className="logout-btn"
+          >
             Logout
           </button>
         </li>
       </ul>
+
+      {/* زر الهامبرغر */}
+      <div className={`menu-toggle ${menuOpen ? "open" : ""}`} onClick={toggleMenu}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </nav>
   );
 };

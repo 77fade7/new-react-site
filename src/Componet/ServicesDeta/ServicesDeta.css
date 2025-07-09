@@ -279,3 +279,58 @@ button:disabled {
     opacity: 1;
   }
 }
+/* تنسيق خاص للأجهزة الصغيرة (جوالات) */
+@media (max-width: 768px) {
+  .service-detail {
+    padding: 1rem;
+  }
+
+  .description {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .levels-container {
+    grid-template-columns: 1fr; /* عمود واحد فقط */
+    padding-top: 50px;
+  }
+
+  .level-item {
+    padding: 1.2rem 1rem;
+  }
+
+  .level-item h4 {
+    font-size: 1.2rem;
+  }
+
+  .level-item p {
+    font-size: 0.95rem;
+  }
+
+  .deposit-form {
+    padding: 1rem;
+    width: 95%;
+  }
+
+  .usdt-address {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .invite {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .contact {
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  button {
+    font-size: 0.95rem;
+    padding: 0.5rem 1.2rem;
+  }
+}

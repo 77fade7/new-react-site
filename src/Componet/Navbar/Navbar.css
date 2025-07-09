@@ -12,7 +12,7 @@
 }
 
 .navbar-logo {
-  color: gold;
+  color: rgb(27, 177, 152);
   font-size: 1.5rem;
   font-weight: bold;
   letter-spacing: 2px;
@@ -39,7 +39,7 @@
 }
 
 .navbar-links li a {
-  color: gold;
+  color: rgb(17, 197, 188);
   text-decoration: none;
   font-weight: bold;
   position: relative;
@@ -55,7 +55,7 @@
   bottom: -2px;
   width: 0;
   height: 2px;
-  background-color: gold;
+  background-color: rgb(44, 130, 149);
   transition: width 0.4s ease;
 }
 
@@ -74,15 +74,15 @@
   }
   .navbar-links {
     flex-direction: column;
-    width: 100%;
-    gap: 15px;
+    width: 50%;
+    gap: 10px;
     margin-top: 10px;
   }
 }
 .logout-btn {
   background-color: transparent;
   border: 1px solid #fff;
-  margin-left: 50px;
+  margin-left: 1px;
   color: white;
   padding: 5px 10px;
   cursor: pointer;
@@ -93,4 +93,66 @@
 .logout-btn:hover {
   background-color: #fff;
   color: #000;
+}
+ /* زر الهامبرغر مخفي على الشاشات الكبيرة */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.menu-toggle span {
+  width: 28px;
+  height: 3px;
+  background-color: #b2b428;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+}
+
+/* تحول الزر عند الفتح */
+.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* عرض القائمة بشكل مخفي ومتحرك في الجوال */
+.navbar-links {
+  transition: transform 0.35s ease-in-out;
+}
+
+/* فقط على الشاشات الصغيرة */
+@media (max-width: 768px) {
+  /* القائمة مخفية بشكل افتراضي يمين الشاشة */
+  .navbar-links {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    background-color: #5d5d5d31; /* أو لون الخلفية الأساسي */
+    width: 70%;
+    max-width: 280px;
+    height: 40vh;
+    transform: translateX(100%);
+    box-shadow: -2px 0 10px rgba(0, 255, 255, 0.3);
+    border-left: 1px solid #0e0e0e73;
+    padding-top: 2rem;
+    flex-direction: column;
+  }
+
+  /* إذا فتحنا القائمة */
+  .navbar-links.open {
+    transform: translateX(0);
+  }
+
+  /* زر الهامبرغر يظهر */
+  .menu-toggle {
+    display: flex;
+  }
 }
