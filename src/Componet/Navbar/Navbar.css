@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px 40px;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+  box-shadow: 0 0 15px rgba(23, 22, 20, 0.2);
   border-bottom: 1px solid #333;
   position: sticky;
   top: 0;
@@ -30,20 +30,22 @@
   gap: 25px;
   margin: 0;
   padding: 0;
+  color: #128ab9;
 }
 
 .navbar-links li {
   position: relative;
   margin-top: 20px;
   margin-left: 25px;
+   color: #128ab9;
 }
+
 
 .navbar-links li a {
   color: rgb(17, 197, 188);
   text-decoration: none;
   font-weight: bold;
   position: relative;
-  
   padding: 5px 0;
   transition: color 0.3s ease;
 }
@@ -51,6 +53,7 @@
 .navbar-links li a::after {
   content: "";
   position: absolute;
+   color: #128ab9;
   left: 0;
   bottom: -2px;
   width: 0;
@@ -60,7 +63,7 @@
 }
 
 .navbar-links li a:hover {
-  color: #ffd700;
+  color: #128ab9;
 }
 
 .navbar-links li a:hover::after {
@@ -77,6 +80,7 @@
     width: 50%;
     gap: 10px;
     margin-top: 10px;
+     color: #128ab9;
   }
 }
 .logout-btn {
@@ -137,7 +141,7 @@
     right: 0;
     background-color: #5d5d5d31; /* أو لون الخلفية الأساسي */
     width: 70%;
-    max-width: 280px;
+    max-width: 150px;
     height: 40vh;
     transform: translateX(100%);
     box-shadow: -2px 0 10px rgba(0, 255, 255, 0.3);

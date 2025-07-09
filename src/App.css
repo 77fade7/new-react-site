@@ -31,7 +31,7 @@
 }
 
 .navbar-logo {
-  color: gold;
+  color: rgb(26, 195, 187);
   font-size: 1.5rem;
   font-weight: bold;
   letter-spacing: 2px;
@@ -52,7 +52,7 @@
 }
 
 .navbar-links li a {
-  color: gold;
+  color: rgb(233, 8, 169);
   text-decoration: none;
   font-weight: bold;
   position: relative;
