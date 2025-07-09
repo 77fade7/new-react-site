@@ -1,8 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
+ import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("loggedIn");
+    navigate(0); // إعادة تحميل الصفحة لإظهار شاشة تسجيل الدخول
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">cryptotech202</div>
@@ -19,7 +26,11 @@ const Navbar = () => {
         <li>
           <Link to="/services">Services</Link>
         </li>
-         
+        <li>
+          <button onClick={handleLogout} className="logout-btn">
+            Logout
+          </button>
+        </li>
       </ul>
     </nav>
   );

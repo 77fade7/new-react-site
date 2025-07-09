@@ -1,7 +1,8 @@
  import React, { useState } from 'react';
 import './Auth.css';
 
-const Auth = () => {
+const Auth = ({ onLogin }) => {
+  const [input, setInput] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState(null);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -11,25 +12,25 @@ const Auth = () => {
       id: 'okx',
       name: 'OKX',
       logo: './Al.imag/al.4.jpg',
-      praise: 'We extend our deepest gratitude to OKX for their trust and endorsement of our platform. This valued partnership enables us to deliver exceptional trading experiences and innovative solutions to investors worldwide.'
+      praise: 'We extend our deepest gratitude to OKX for their trust and endorsement...'
     },
     {
       id: 'binance',
       name: 'Binance',
       logo: './Al.imag/al.2.jpg',
-      praise: 'Our heartfelt thanks to Binance for recommending our platform. This strategic alliance reflects our shared commitment to excellence in crypto trading and our dedication to serving the global investor community.'
+      praise: 'Our heartfelt thanks to Binance for recommending our platform...'
     },
     {
       id: 'coinbase',
       name: 'Coinbase',
       logo: './Al.imag/al.5.jpg',
-      praise: 'We sincerely appreciate Coinbase for their support and recommendation. This partnership underscores our mutual dedication to security, transparency, and creating the best trading environment for our users.'
+      praise: 'We sincerely appreciate Coinbase for their support and recommendation...'
     },
     {
       id: 'bybit',
       name: 'Bybit',
       logo: './Al.imag/al.3.jpg',
-      praise: 'We are profoundly grateful to Bybit for their confidence in our platform. This collaboration strengthens our ability to deliver cutting-edge trading solutions and exceptional service to investors globally.'
+      praise: 'We are profoundly grateful to Bybit for their confidence in our platform...'
     }
   ];
 
@@ -37,13 +38,24 @@ const Auth = () => {
     setIsAnimating(true);
     setModalData(platform);
     setShowModal(true);
-    
-    // Reset animation state after display
     setTimeout(() => setIsAnimating(false), 1000);
   };
 
   const closeModal = () => {
     setShowModal(false);
+  };
+
+  const handleLogin = () => {
+    if (input.trim() !== "") {
+      localStorage.setItem("loggedIn", "true");
+      if (typeof onLogin === "function") {
+        onLogin();
+      } else {
+        console.error("onLogin غير موجود أو ليس دالة.");
+      }
+    } else {
+      alert("يرجى إدخال البريد الإلكتروني أو رقم الهاتف.");
+    }
   };
 
   return (
@@ -57,11 +69,15 @@ const Auth = () => {
           <input 
             type="text" 
             id="email-phone" 
-            placeholder="Enter your email or phone number" 
+            placeholder="Enter your email or phone number"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
             required 
           />
         </div>
-        <button className="signup-btn">Register Now</button>
+        <button className="signup-btn" onClick={handleLogin}>
+          Register Now
+        </button>
       </div>
       
       <div className="stats">

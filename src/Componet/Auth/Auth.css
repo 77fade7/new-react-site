@@ -75,7 +75,7 @@ body {
   width: 100%;
   background: rgba(22, 33, 62, 0.8);
   backdrop-filter: blur(10px);
-  border-radius: 20px;
+  border-radius: 30px;
   padding: 40px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
   animation: fadeIn 0.8s ease-in-out;
@@ -212,7 +212,7 @@ body {
 /* Stats */
 .stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 25px;
   margin-bottom: 50px;
 }
