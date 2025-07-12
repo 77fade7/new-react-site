@@ -34,7 +34,10 @@ const Navbar = () => {
           <Link to="/services" onClick={() => setMenuOpen(false)}>Services</Link>
         </li>
         <li>
-          <button
+         
+        </li>
+      </ul>
+       <button
             onClick={() => {
               handleLogout();
               setMenuOpen(false);
@@ -43,8 +46,6 @@ const Navbar = () => {
           >
             Logout
           </button>
-        </li>
-      </ul>
 
       {/* زر الهامبرغر */}
       <div className={`menu-toggle ${menuOpen ? "open" : ""}`} onClick={toggleMenu}>

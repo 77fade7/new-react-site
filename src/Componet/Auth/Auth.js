@@ -3,6 +3,7 @@ import './Auth.css';
 
 const Auth = ({ onLogin }) => {
   const [input, setInput] = useState("");
+  const [password, setPassword] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState(null);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -46,15 +47,18 @@ const Auth = ({ onLogin }) => {
   };
 
   const handleLogin = () => {
-    if (input.trim() !== "") {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(input)) {
+      alert("يرجى إدخال بريد إلكتروني صحيح.");
+    } else if (password.trim().length < 6) {
+      alert("كلمة المرور يجب أن تكون 6 أحرف على الأقل.");
+    } else {
       localStorage.setItem("loggedIn", "true");
       if (typeof onLogin === "function") {
         onLogin();
       } else {
         console.error("onLogin غير موجود أو ليس دالة.");
       }
-    } else {
-      alert("يرجى إدخال البريد الإلكتروني أو رقم الهاتف.");
     }
   };
 
@@ -63,23 +67,36 @@ const Auth = ({ onLogin }) => {
       <div className="header">
         <h1>Electronic Response / Phone Number</h1>
       </div>
-      
+
       <div className="signup-form">
         <div className="form-group">
           <input 
             type="text" 
             id="email-phone" 
-            placeholder="Enter your email or phone number"
+            placeholder="Enter your email"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             required 
           />
         </div>
+
+        {/* 🟢 حقل كلمة المرور بنفس تنسيق الإيميل */}
+        <div className="form-group">
+          <input 
+            type="password" 
+            id="password" 
+            placeholder="Enter your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required 
+          />
+        </div>
+
         <button className="signup-btn" onClick={handleLogin}>
           Register Now
         </button>
       </div>
-      
+
       <div className="stats">
         <div className="stat-item">
           <div className="stat-number">200+</div>
@@ -102,7 +119,7 @@ const Auth = ({ onLogin }) => {
           <div className="stat-subtext">99.9% Uptime Guarantee</div>
         </div>
       </div>
-      
+
       <div className="recommended">
         <h2>Recommended by Leading Platforms</h2>
         <div className="platforms">
@@ -120,7 +137,7 @@ const Auth = ({ onLogin }) => {
           ))}
         </div>
       </div>
-      
+
       {showModal && (
         <div className="modal-overlay" onClick={closeModal}>
           <div 
