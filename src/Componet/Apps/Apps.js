@@ -292,7 +292,7 @@ const updateCoinsList = () => {
     <div className="main">
       <button
         onClick={() => setPage("home")}
-        style={{ marginBottom: "15px", background: "#222", color: "gold" }}
+        className="back-btn"
       >
         ⬅ Back
       </button>
@@ -328,7 +328,7 @@ const updateCoinsList = () => {
         {updateCoinsList()}
       </ul>
       <button
-        style={{ margin: "10px auto", display: "block" }}
+        className="show-more-button"
         onClick={() => setShowingCount((prev) => prev + 20)}
       >
          Show more  

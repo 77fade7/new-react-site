@@ -1,13 +1,16 @@
-/* App.css */
+ /* App.css */
 
 body {
   margin: 0;
+  padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #0d0d0d;
   color: #fff;
   direction: rtl;
+  overflow-x: hidden;
 }
 
+/* ===== NAVBAR ===== */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -24,16 +27,18 @@ body {
   box-sizing: border-box;
 }
 
+/* ===== MAIN CONTENT ===== */
 .main {
-  padding: 70px 15px 80px 15px;
-  min-height: 80vh;
+  padding: 70px 15px 100px 15px;
+  min-height: 100vh;
   box-sizing: border-box;
 }
 
+/* ===== CARD ===== */
 .card {
   background: #1a1a1a;
-  padding: 12px;
-  border-radius: 8px;
+  padding: 10px;
+  border-radius: 10px;
   margin-bottom: 10px;
   color: #fff;
   display: flex;
@@ -41,6 +46,7 @@ body {
   align-items: center;
   cursor: pointer;
   transition: background-color 0.3s;
+  font-size: 14px;
 }
 
 .card:hover {
@@ -49,22 +55,55 @@ body {
 
 .price {
   font-weight: bold;
-  min-width: 90px;
+  min-width: 80px;
   text-align: right;
 }
 
-.price.up {
-  color: #4CAF50;
+.price.up { color: #4CAF50; }
+.price.down { color: #F44336; }
+.price.stable { color: gold; }
+
+/* ===== TABS & BUTTONS ===== */
+.tabs-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  overflow-x: auto;
 }
 
-.price.down {
-  color: #F44336;
-}
-
-.price.stable {
+.tab-btn {
+  padding: 8px 14px;
+  background: #222;
   color: gold;
+  border-radius: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  border: none;
+  font-weight: bold;
+  font-size: 14px;
 }
 
+.tab-btn.active {
+  background: gold;
+  color: black;
+}
+
+/* زر الرجوع */
+.back-btn {
+  background: #222;
+  color: gold;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+/* ===== TABBAR ===== */
 .tabbar {
   position: fixed;
   bottom: 0;
@@ -86,121 +125,99 @@ body {
   user-select: none;
 }
 
-.tab:hover {
-  color: #fff;
-}
+.tab:hover { color: #fff; }
 
-button {
-  background: gold;
-  color: black;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-button.logout {
-  background: #222;
-  color: gold;
-  padding: 8px 20px;
-  border: none;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.tabs-container {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
-  overflow-x: auto;
-}
-
-.tab-btn {
-  padding: 8px 16px;
-  background: #222;
-  color: gold;
-  border-radius: 10px;
-  cursor: pointer;
-  white-space: nowrap;
-  user-select: none;
-  border: none;
-  font-weight: bold;
-}
-
-.tab-btn.active {
-  background: gold;
-  color: black;
-}
-
+/* ===== COINS LIST ===== */
 #coinsList {
   max-height: 60vh;
   overflow-y: auto;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid #444;
+  padding: 5px;
 }
 
 .coin-item {
   display: flex;
   justify-content: space-between;
-  padding: 10px 15px;
+  padding: 10px 12px;
   border-bottom: 1px solid #444;
   cursor: pointer;
   align-items: center;
+  font-size: 13px;
 }
 
 .coin-item:hover {
   background-color: #333;
 }
 
+.coin-left {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .coin-symbol {
   font-weight: bold;
-  margin-left: 8px;
+  margin-left: 6px;
 }
 
 .coin-name {
   opacity: 0.7;
-}
-
-.coin-left {
-  display: flex;
-  align-items: center;
+  font-size: 12px;
 }
 
 .coin-img {
-  width: 24px;
-  height: 24px;
-  margin-left: 8px;
+  width: 20px;
+  height: 20px;
+  margin-left: 6px;
   border-radius: 50%;
 }
 
+/* ===== BUTTONS ===== */
+button {
+  background: gold;
+  color: black;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button.logout {
+  background: #222;
+  color: gold;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ===== SCROLL ARROWS ===== */
 .scroll-arrow {
   position: fixed;
   right: 10px;
   background: gold;
   color: black;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
   text-align: center;
   font-weight: bold;
   cursor: pointer;
   display: none;
   user-select: none;
   z-index: 2000;
+  font-size: 12px;
 }
 
-#scrollUp {
-  top: 80px;
-}
+#scrollUp { top: 80px; }
+#scrollDown { bottom: 100px; }
 
-#scrollDown {
-  bottom: 100px;
-}
-/* Responsive adjustments */
-
+/* ===== MEDIA QUERIES ===== */
 @media (max-width: 768px) {
   .navbar {
     font-size: 16px;
@@ -208,13 +225,31 @@ button.logout {
   }
 
   .main {
-    padding: 60px 10px 80px 10px;
+    padding: 60px 10px 100px 10px;
   }
 
+  .tabbar {
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 8px;
+  }
+
+  .tab, .tab-btn, .back-btn, button {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .tabs-container {
+    gap: 2px;
+    
+  }
+ 
   .card {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 8px;
+    font-size: 13px;
+    padding: 8px;
   }
 
   .price {
@@ -222,75 +257,43 @@ button.logout {
     text-align: left;
   }
 
-  .tabbar {
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 8px;
-  }
-
-  .tab {
-    font-size: 12px;
-  }
-
-  button,
-  button.logout {
-    width: 100%;
-    box-sizing: border-box;
-    font-size: 14px;
-    padding: 8px 12px;
-  }
-
-  .tabs-container {
-    gap: 5px;
-  }
-
-  .tab-btn {
-    padding: 6px 10px;
-    font-size: 12px;
-  }
-
-  #coinsList {
-    max-height: none;
-  }
-
   .coin-item {
     flex-direction: column;
     align-items: flex-start;
-    gap: 5px;
-  }
-
-  .coin-left {
-    flex-wrap: wrap;
+    gap: 6px;
   }
 
   .coin-img {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     margin-left: 5px;
   }
 
   .scroll-arrow {
-    width: 25px;
-    height: 25px;
-    line-height: 25px;
-    font-size: 12px;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 10px;
   }
 }
 
-@media (max-width: 480px) {
+ @media (max-width: 480px) {
   .navbar {
     font-size: 14px;
   }
 
   .tabbar {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row; /* 🟡 خليها صف حتى في الشاشات الصغيرة */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    padding: 8px;
   }
 
   .tab {
-    width: 100%;
-    text-align: center;
     font-size: 12px;
+    padding: 6px 8px;
+    min-width: 70px;
   }
 
   .card {
