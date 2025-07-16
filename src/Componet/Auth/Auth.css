@@ -212,7 +212,7 @@ body {
 /* Stats */
 .stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 25px;
   margin-bottom: 50px;
 }
@@ -246,7 +246,7 @@ body {
 }
 
 .stat-number {
-  font-size: 2.8rem;
+  font-size: 1.8rem;
   font-weight: 700;
   background: var(--accent-gradient);
   -webkit-background-clip: text;
@@ -257,7 +257,7 @@ body {
 }
 
 .stat-text {
-  font-size: 1.1rem;
+  font-size: 1.0rem;
   font-weight: 500;
   margin-bottom: 8px;
   color: var(--text-primary);
@@ -589,4 +589,27 @@ body {
   .praise-message p {
     font-size: 1rem;
   }
+}
+.form-toggle {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.toggle-btn {
+  background: transparent;
+  color: #00f7ff;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.phone-field {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.country-select {
+  max-width: 100px;
 }

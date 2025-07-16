@@ -24,6 +24,15 @@ const Navbar = () => {
         <li>
           <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
         </li>
+         <li>
+          <Link to="/Apps" onClick={() => setMenuOpen(false)}>digital currencies</Link>
+        </li>
+         <li>
+          <Link to="/Aps" onClick={() => setMenuOpen(false)}>Donations</Link>
+        </li>
+        <li>
+          <Link to="/Depositandwithdrawal" onClick={() => setMenuOpen(false)}>Depositandwithdrawal</Link>
+        </li>
         <li>
           <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
         </li>
@@ -36,8 +45,7 @@ const Navbar = () => {
         <li>
          
         </li>
-      </ul>
-       <button
+        <button
             onClick={() => {
               handleLogout();
               setMenuOpen(false);
@@ -46,6 +54,8 @@ const Navbar = () => {
           >
             Logout
           </button>
+      </ul>
+      
 
       {/* زر الهامبرغر */}
       <div className={`menu-toggle ${menuOpen ? "open" : ""}`} onClick={toggleMenu}>

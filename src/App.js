@@ -8,7 +8,9 @@ import Contact from "./Componet/Contact/Contact";
 import Services from "./Componet/Services/Services";
 import ServicesDeta from "./Componet/ServicesDeta/ServicesDeta";
 import Verify from "./Componet/Verify/Verify";
-
+import Apps from "./Componet/Apps/Apps";
+import Aps from "./Componet/Aps/Aps";
+import Depositandwithdrawal from "./Componet/Deposit.and.withdrawal/Depositandwithdrawal";
 // استدعاء المكونات
 import Navbar from "./Componet/Navbar/Navbar";
 import Footer from "./Componet/Footer/Footer";
@@ -37,6 +39,9 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
+             <Route path="/Apps" element={<Apps />} />
+             <Route path="/Depositandwithdrawal" element={<Depositandwithdrawal />} />
+             <Route path="/Aps" element={<Aps />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/services" element={<Services />} />

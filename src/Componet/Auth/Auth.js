@@ -1,5 +1,6 @@
  import React, { useState } from 'react';
 import './Auth.css';
+import ReactFlagsSelect from "react-flags-select"; // Install: npm install react-flags-select
 
 const Auth = ({ onLogin }) => {
   const [input, setInput] = useState("");
@@ -8,31 +9,23 @@ const Auth = ({ onLogin }) => {
   const [modalData, setModalData] = useState(null);
   const [isAnimating, setIsAnimating] = useState(false);
 
+  // New additions
+  const [isSignup, setIsSignup] = useState(false);
+  const [phone, setPhone] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState("YE"); // Yemen as default
+
+  const toggleAuthMode = () => {
+    setIsSignup(!isSignup);
+    setInput("");
+    setPassword("");
+    setPhone("");
+  };
+
   const platformsData = [
-    {
-      id: 'okx',
-      name: 'OKX',
-      logo: './Al.imag/al.4.jpg',
-      praise: 'We extend our deepest gratitude to OKX for their trust and endorsement...'
-    },
-    {
-      id: 'binance',
-      name: 'Binance',
-      logo: './Al.imag/al.2.jpg',
-      praise: 'Our heartfelt thanks to Binance for recommending our platform...'
-    },
-    {
-      id: 'coinbase',
-      name: 'Coinbase',
-      logo: './Al.imag/al.5.jpg',
-      praise: 'We sincerely appreciate Coinbase for their support and recommendation...'
-    },
-    {
-      id: 'bybit',
-      name: 'Bybit',
-      logo: './Al.imag/al.3.jpg',
-      praise: 'We are profoundly grateful to Bybit for their confidence in our platform...'
-    }
+    { id: 'okx', name: 'OKX', logo: 'Al.imag/al.4.jpg', praise: 'Cryptotech202 is an advanced platform that combines security and flexibility, with a strong focus on meeting user expectations in the digital market. The platform offers a wide range of digital currencies and features competitive fees that encourage efficient trading. Cryptotech202 s commitment to innovati  on and development makes it a dynamic platform that delivers high-quality services and an excellent user experience. Users find it the ideal partner to support their investment goals and help them achieve sustainable profits....' },
+    { id: 'binance', name: 'Binance', logo: 'Al.imag/al.3.jpg', praise: 'Cryptotech202 prides itself on providing a secure and reliable trading environment, making it an ideal choice for anyone seeking a seamless and unique experience in the world of digital currencies. The platform features modern technologies that ensure fast transactions and accurate order execution, in addition to continuous technical support that contributes to building user confidence and enhancing their satisfaction. Cryptotech202 offers real opportunities for growth and development in a volatile market, with an easy-to-use and simple user interface that suits everyone, from beginners to professionals.' },
+    { id: 'coinbase', name: 'Coinbase', logo: 'Al.imag/al.1.jpg', praise: 'Cryptotech202 offers comprehensive solutions for cryptocurrency traders, with a sophisticated, user-friendly interface that ensures a convenient and secure experience. The platform combines speed and reliability in executing trades and offers a huge range of cryptocurrencies to suit various tastes and strategies. Cryptotech202 s commitment to customer support and continuous improvement of its services makes it a leading platform worthy of trust and reliance. It s the ideal place for anyone who wants to enter the world of trading with confidence and success....' },
+    { id: 'bybit', name: 'Bybit', logo: 'Al.imag/al.2.jpg', praise: 'Cryptotech202 is fully committed to providing innovative services that meet the needs of investors at all levels. The platform relies on the latest technologies to secure user data and protect their funds, while providing powerful analytical tools that help traders make informed decisions. Ongoing support and regular updates make Cryptotech202 a reliable and secure environment for daily trading. The user experience here is not just about trading, but rather a journey of continuous learning and development....' }
   ];
 
   const handlePlatformClick = (platform) => {
@@ -49,73 +42,101 @@ const Auth = ({ onLogin }) => {
   const handleLogin = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(input)) {
-      alert("يرجى إدخال بريد إلكتروني صحيح.");
+      alert("Please enter a valid email address.");
     } else if (password.trim().length < 6) {
-      alert("كلمة المرور يجب أن تكون 6 أحرف على الأقل.");
+      alert("Password must be at least 6 characters.");
     } else {
       localStorage.setItem("loggedIn", "true");
       if (typeof onLogin === "function") {
         onLogin();
       } else {
-        console.error("onLogin غير موجود أو ليس دالة.");
+        console.error("onLogin is not defined or not a function.");
       }
     }
   };
 
+  const handleExtendedLogin = () => {
+    if (isSignup && phone.trim().length < 7) {
+      alert("Please enter a valid phone number.");
+      return;
+    }
+    handleLogin();
+  };
+
   return (
-    <div className="trading-platform-container">
-      <div className="header">
-        <h1>Electronic Response / Phone Number</h1>
-      </div>
+    <div className="signup-form">
 
-      <div className="signup-form">
-        <div className="form-group">
-          <input 
-            type="text" 
-            id="email-phone" 
-            placeholder="Enter your email"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            required 
-          />
-        </div>
-
-        {/* 🟢 حقل كلمة المرور بنفس تنسيق الإيميل */}
-        <div className="form-group">
-          <input 
-            type="password" 
-            id="password" 
-            placeholder="Enter your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required 
-          />
-        </div>
-
-        <button className="signup-btn" onClick={handleLogin}>
-          Register Now
+      <div className="form-toggle">
+        <button onClick={toggleAuthMode} className="toggle-btn">
+          {isSignup ? "Already have an account? Log In" : "Don't have an account? Sign Up"}
         </button>
       </div>
 
+      <div className="form-group">
+        <input
+          type="text"
+          id="email"
+          placeholder="Enter your email"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          required
+        />
+      </div>
+
+      {isSignup && (
+        <div className="form-group phone-field">
+          <ReactFlagsSelect
+            selected={selectedCountry}
+            onSelect={(code) => setSelectedCountry(code)}
+            countries={["YE", "SA", "AE", "US", "GB"]}
+            placeholder="Select country"
+            className="country-select"
+          />
+          <input
+            type="tel"
+            id="phone"
+            placeholder="Enter your phone number"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            required
+          />
+        </div>
+      )}
+
+      <div className="form-group">
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter your password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+      </div>
+
+      <button className="signup-btn" onClick={handleExtendedLogin}>
+        {isSignup ? "Sign Up" : "Log In"}
+      </button>
+
       <div className="stats">
         <div className="stat-item">
-          <div className="stat-number">200+</div>
+          <div className="stat-number">30+</div>
           <div className="stat-text">Supported Countries</div>
           <div className="stat-subtext">400 Million Global Investors</div>
         </div>
         <div className="stat-item">
-          <div className="stat-number">900+</div>
+          <div className="stat-number">40+</div>
           <div className="stat-text">Cryptocurrencies</div>
           <div className="stat-subtext">$2.74B 24h Trading Volume</div>
         </div>
         <div className="stat-item">
-          <div className="stat-number">100+</div>
-          <div className="stat-text">Trading Pairs</div>
-          <div className="stat-subtext">Lowest Fees in the Market</div>
+          <div className="stat-number">10M+</div>
+          <div className="stat-text">International user</div>
+          <div className="stat-subtext">Lowest Fees in the Market 50$</div>
         </div>
         <div className="stat-item">
-          <div className="stat-number">500+</div>
-          <div className="stat-text">Instant Services</div>
+          <div className="stat-number">60M$+</div>
+          <div className="stat-text">24-hour trading volume</div>
           <div className="stat-subtext">99.9% Uptime Guarantee</div>
         </div>
       </div>
@@ -124,8 +145,8 @@ const Auth = ({ onLogin }) => {
         <h2>Recommended by Leading Platforms</h2>
         <div className="platforms">
           {platformsData.map(platform => (
-            <div 
-              key={platform.id} 
+            <div
+              key={platform.id}
               className="platform-card"
               onClick={() => handlePlatformClick(platform)}
             >
@@ -140,7 +161,7 @@ const Auth = ({ onLogin }) => {
 
       {showModal && (
         <div className="modal-overlay" onClick={closeModal}>
-          <div 
+          <div
             className={`modal-content ${isAnimating ? 'animate' : ''}`}
             onClick={(e) => e.stopPropagation()}
           >

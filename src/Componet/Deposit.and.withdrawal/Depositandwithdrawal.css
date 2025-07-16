@@ -1,0 +1,177 @@
+/* App.css */
+
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: #0d0d0d;
+    color: #fff;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    direction: rtl;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  /* Navbar */
+  
+  
+  /* Main content */
+  .main {
+    padding: 90px 20px 80px 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  /* Headings */
+  h2 {
+    color: gold;
+    margin-bottom: 20px;
+    font-size: 24px;
+    position: relative;
+  }
+  
+  h2::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    right: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(to left, gold, #444);
+    border-radius: 5px;
+  }
+  
+  .small-text {
+    font-size: 14px;
+    color: #aaa;
+    margin-right: 10px;
+  }
+  
+  /* Contracts List */
+  #contractsList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+  }
+  
+  .contract-entry {
+    background-color: #1a1a1a;
+    padding: 15px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: 1px solid #333;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 150px;
+    overflow-wrap: break-word;
+    word-break: break-all;
+    animation: fadeIn 0.8s ease;
+  }
+  
+  .contract-entry:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, #222, #333);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+  }
+  
+  .contract-address {
+    font-size: 13px;
+    color: #ccc;
+    word-break: break-all;
+  }
+  
+  .contract-profit {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+    transition: color 0.3s;
+  }
+  
+  .contract-profit.deposit {
+    color: #4caf50;
+  }
+  
+  .contract-profit.withdraw {
+    color: #f44336;
+  }
+  
+  .contract-network {
+    font-size: 12px;
+    color: gold;
+    margin-top: auto;
+    text-align: left;
+  }
+  
+  /* Tabbar */
+  .tabbar {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #111;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-top: 1px solid #333;
+    z-index: 1000;
+  }
+  
+  .tab {
+    color: gold;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.3s;
+  }
+  
+  .tab:hover {
+    color: #fff;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 20px;
+    }
+  
+    .navbar {
+      font-size: 18px;
+    }
+  
+    #contractsList {
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 10px;
+    }
+  
+    .contract-entry {
+      height: auto;
+      padding: 10px;
+    }
+  
+    .contract-profit {
+      font-size: 18px;
+    }
+  
+    .tab {
+      font-size: 12px;
+    }
+  }

@@ -1,0 +1,116 @@
+/* الأساسيات */
+ 
+
+/* الصفحة الرئيسية */
+.main {
+  padding: 80px 5vw 80px 5vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-color: #0d0d0d;
+}
+
+/* عنوان القائمة */
+.main h2 {
+  color: gold;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+}
+
+/* القائمة */
+#donorsList {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* كل بطاقة متبرع */
+.donor-card {
+  background: #222;
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1rem;
+  flex-wrap: wrap;
+}
+
+/* المبلغ */
+.donation-amount {
+  color: gold;
+  font-size: 1rem;
+}
+
+/* الشريط السفلي */
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #111;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.7rem 0;
+  border-top: 1px solid #333;
+  z-index: 1000;
+  flex-wrap: wrap;
+}
+
+.tab {
+  color: gold;
+  font-size: 0.9rem;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  flex: 1;
+  padding: 0.5rem 0;
+}
+
+.tab:hover {
+  color: #fff;
+}
+
+/* شاشات صغيرة جداً */
+@media (max-width: 480px) {
+  .navbar {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+
+  .main h2 {
+    font-size: 1.4rem;
+  }
+
+  .donor-card {
+    font-size: 0.9rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .donation-amount {
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+  }
+
+  .tab {
+    font-size: 0.8rem;
+  }
+}
+
+/* شاشات متوسطة */
+@media (min-width: 768px) {
+  .main {
+    padding: 90px 15vw 90px 15vw;
+  }
+
+  .donor-card {
+    font-size: 1.1rem;
+  }
+
+  .donation-amount {
+    font-size: 1.1rem;
+  }
+}

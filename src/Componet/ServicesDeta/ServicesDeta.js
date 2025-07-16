@@ -2,7 +2,7 @@
 import { useParams } from "react-router-dom";
 import "./ServicesDeta.css";
 
-const ONE_DAY_SECONDS = 720 * 60 * 60;
+const ONE_DAY_SECONDS = 5000 * 60 * 60;
 
 function formatTime(seconds) {
   const hrs = Math.floor(seconds / 3600);
@@ -23,11 +23,11 @@ const services = [
       description:
         "Technical and analytical support from an expert team, with a smart system to track profits live.",
       levels: [
-        { name: "Beginner Level", subscription: 50, dailyPercent: 1.5, dailyIncome: 50 },
-        { name: "Premium Level", subscription: 150, dailyPercent: 2.5, dailyIncome: 150 },
-        { name: "Advanced Level", subscription: 300, dailyPercent: 3.5, dailyIncome: 300 },
-        { name: "Professional Level", subscription: 500, dailyPercent: 4.5, dailyIncome: 500 },
-        { name: "Elite Level", subscription: 700, dailyPercent: 6.0, dailyIncome: 700 },
+        { name: "Beginner Level", subscription: 50, dailyPercent: 1.5, dailyIncome: 1.6 },
+        { name: "Premium Level", subscription: 150, dailyPercent: 2.5, dailyIncome: 5.00 },
+        { name: "Advanced Level", subscription: 300, dailyPercent: 3.5, dailyIncome: 10.00 },
+        { name: "Professional Level", subscription: 500, dailyPercent: 4.5, dailyIncome: 16.67 },
+        { name: "Elite Level", subscription: 700, dailyPercent: 6.0, dailyIncome: 23.33 },
       ],
       steps: [
         "Choose the level that suits your budget.",
@@ -54,11 +54,12 @@ const services = [
       description:
         "We are pleased to offer a safe and real investment opportunity in real estate, with steady long-term income in a booming market.",
       levels: [
-        { name: "Beginner Level", subscription: 200, dailyPercent: 1.0, dailyIncome: 200 },
-        { name: "Premium Level", subscription: 400, dailyPercent: 1.5, dailyIncome: 400 },
-        { name: "Advanced Level", subscription: 600, dailyPercent: 2.0, dailyIncome: 600 },
-        { name: "Professional Level", subscription: 800, dailyPercent: 2.5, dailyIncome: 800},
-        { name: "Elite Level", subscription: 1000, dailyPercent: 3.0, dailyIncome: 1000 },
+        { name: "Beginner Level", subscription: 200, dailyPercent: 1.0, dailyIncome: 6.6 },
+        { name: "Premium Level", subscription: 400, dailyPercent: 1.5, dailyIncome: 13.3 },
+        { name: "Advanced Level", subscription: 600, dailyPercent: 2.0, dailyIncome: 20.00 },
+        { name: "Professional Level", subscription: 800, dailyPercent: 2.5, dailyIncome: 26.6},
+        { name: "Elite Level", subscription: 1000, dailyPercent: 3.0, dailyIncome: 33.3
+       },
       ],
       steps: [
         "Choose the appropriate level based on your financial goals.",
@@ -85,11 +86,11 @@ const services = [
       description:
         "We are pleased to offer a secure and distinguished investment opportunity combining the profit power of cryptocurrencies (especially Bitcoin) with the stability of gold as a trusted asset, to ensure a steady daily income and diversified portfolio.",
       levels: [
-        { name: "Beginner Level", subscription: 90, dailyPercent: 1.5, dailyIncome: 90 },
-        { name: "Premium Level", subscription: 250, dailyPercent: 2.0, dailyIncome: 250 },
-        { name: "Advanced Level", subscription: 400, dailyPercent: 2.5, dailyIncome: 400 },
-        { name: "Professional Level", subscription: 600, dailyPercent: 3.0, dailyIncome: 600 },
-        { name: "Elite Level", subscription: 800, dailyPercent: 3.5, dailyIncome: 800 },
+        { name: "Beginner Level", subscription: 90, dailyPercent: 1.5, dailyIncome: 3.00 },
+        { name: "Premium Level", subscription: 250, dailyPercent: 2.0, dailyIncome: 8.33 },
+        { name: "Advanced Level", subscription: 400, dailyPercent: 2.5, dailyIncome: 13.33 },
+        { name: "Professional Level", subscription: 600, dailyPercent: 3.0, dailyIncome: 20.00 },
+        { name: "Elite Level", subscription: 800, dailyPercent: 3.5, dailyIncome: 26.67 },
       ],
       steps: [
         "Choose the appropriate level based on your financial goals.",
@@ -224,10 +225,10 @@ const ServiceDeta = () => {
               <h4>{level.name}</h4>
               <p><b>Subscription:</b> ${level.subscription}</p>
               <p><b>Daily Percentage:</b> {level.dailyPercent}%</p>
-              <p><b>Monthly Income:</b> ${level.dailyIncome}</p>
+              <p><b>Daily income:</b> ${level.dailyIncome}</p>
               <p><b>Mining Status:</b> {m.running ? "Running" : m.confirmed ? "Stopped" : "Not Started"}</p>
-              <p><b>Elapsed Time:</b> {formatTime(elapsed)} / 720:00:00</p>
-              <p><b>Earned So Far:</b> ${earned}</p>
+              <p><b>Elapsed Time:</b> {formatTime(elapsed)} </p>
+               
 
               {!m.confirmed && (
                 <button onClick={() => handleStartClick(i)}>Start Mining</button>
