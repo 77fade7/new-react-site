@@ -37,7 +37,6 @@ const services = [
       ],
       invite: "Join now and start your investment journey with confidence.",
       contact: "Contact us via our official channel.",
-      // Add your deposit addresses here (example):
       depositAddresses: {
         TRC20: "TKc35dVucMAhkjimUVsqFfk7qWbXLV4GEE",
         ERC20: "0x22841c6678d8734c5c6fe5f009b6b41c27a30e36",
@@ -58,8 +57,7 @@ const services = [
         { name: "Premium Level", subscription: 400, dailyPercent: 1.5, dailyIncome: 13.3 },
         { name: "Advanced Level", subscription: 600, dailyPercent: 2.0, dailyIncome: 20.00 },
         { name: "Professional Level", subscription: 800, dailyPercent: 2.5, dailyIncome: 26.6},
-        { name: "Elite Level", subscription: 1000, dailyPercent: 3.0, dailyIncome: 33.3
-       },
+        { name: "Elite Level", subscription: 1000, dailyPercent: 3.0, dailyIncome: 33.3 },
       ],
       steps: [
         "Choose the appropriate level based on your financial goals.",
@@ -172,6 +170,11 @@ const ServiceDeta = () => {
   };
 
   const confirmDeposit = (index) => {
+    if (!depositInputs.amount || !depositInputs.link || !depositInputs.image) {
+      alert("يرجى تعبئة جميع الحقول المطلوبة (المبلغ، رابط الإيداع، وصورة الإيداع).");
+      return;
+    }
+
     const startedAt = Math.floor(Date.now() / 1000);
     setMiners((prev) => {
       const copy = [...prev];
@@ -228,7 +231,6 @@ const ServiceDeta = () => {
               <p><b>Daily income:</b> ${level.dailyIncome}</p>
               <p><b>Mining Status:</b> {m.running ? "Running" : m.confirmed ? "Stopped" : "Not Started"}</p>
               <p><b>Elapsed Time:</b> {formatTime(elapsed)} </p>
-               
 
               {!m.confirmed && (
                 <button onClick={() => handleStartClick(i)}>Start Mining</button>
@@ -265,7 +267,6 @@ const ServiceDeta = () => {
         ))}
       </ol>
 
-      {/* Deposit Addresses Section */}
       <h3>💳 USDT Deposit Addresses</h3>
       <div className="usdt-addresses">
         <div className="usdt-address">
